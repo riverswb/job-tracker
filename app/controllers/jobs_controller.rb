@@ -36,6 +36,9 @@ class JobsController < ApplicationController
       flash[:success] = "#{@job.title} updated!"
       redirect_to job_path(@job)
     else
+      @error = @job.errors
+      # company = @job.company
+      # redirect_to edit_company_job_path(company, @job)
       render :edit
     end
   end
