@@ -1,5 +1,17 @@
 All Jobs for <strong><%= @company.name %></strong>
 
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <ul>
+    <%= job.title %> at <%= job.company.name %>
+    <button type="button" class="btn btn-danger">
+    <%= link_to "Delete", company_job_path(@company, job), method: "delete" %>
+    </button>
+  </ul>
 <% end %>
+<br>
+<button type="button" class="btn btn-secondary">
+  <%= link_to 'Back', :back %>
+</button>
+<button type="button" class="btn btn-primary" name="button">
+  <%= link_to "Companies", companies_path %>
+</button>

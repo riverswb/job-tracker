@@ -11,7 +11,7 @@ describe "User edits an existing job" do
     fill_in "job[city]", with: "Greeley"
     click_on "Update"
 
-    expect(current_path).to eq(job_path(job))
+    expect(current_path).to eq(company_job_path(company, job))
     expect(page).to have_content("MS Word Technitian")
     expect(page).to have_content(1)
     expect(page).to have_content("Greeley")
