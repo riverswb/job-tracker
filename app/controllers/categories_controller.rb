@@ -12,7 +12,6 @@ class CategoriesController < ApplicationController
     else
       @errors = @category.errors
       render :new
-      # redirect_to new_category_path
     end
   end
 
@@ -26,6 +25,22 @@ class CategoriesController < ApplicationController
 
     flash[:success] = "The #{category.title} Category was successfully deleted"
     redirect_to categories_path
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    @category.update(category_params)
+      if @category.save
+        flash[:success] = "#{@category.title} updated!"
+        redirect_to categories_path
+      else
+        @errors = @category.errors
+        render :edit
+      end
   end
 
   private
