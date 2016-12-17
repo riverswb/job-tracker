@@ -4,7 +4,9 @@
 
   <% @categories.each do |category| %>
     <ul>
-      <h3><%= category.title %></h3>
+      <h3><%= category.title %>
+        <%= link_to "Delete", category_path(category), method: :delete %>
+      </h3>
     </ul>
   <% end %>
 </div>
