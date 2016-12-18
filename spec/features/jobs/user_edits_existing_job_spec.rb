@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "User edits an existing job" do
   scenario "a user can edit a job" do
     job = Job.first
-    company = Company.all[1]
+    company = Company.all[0]
     visit edit_company_job_path(company, job)
 
     fill_in "job[title]", with: "MS Word Technitian"

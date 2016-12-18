@@ -20,6 +20,11 @@
 
   <%= f.label :city %>
   <%= f.text_field :city %>
-
+  <% if Category.count > 0 %>
+    <%= f.label :category %>
+    <%= f.collection_select :category_id, Category.all, :id, :title, :prompt => "Select a category" %>
+  <% else %>
+    <h5>No categories to choose from, <%= link_to "create category", new_category_path %></h5>
+  <% end %>
   <%= f.submit %>
 <% end %>
