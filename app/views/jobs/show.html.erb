@@ -18,11 +18,11 @@
 
 <br/>
 <h4>Comments:</h4>
-  <% @job.comments.reverse.each do |comment| %>
   <ul>
+    <% @job.comments.reverse.each do |comment| %>
     <li><%= "#{comment.text}" %></li>
+    <% end%>
   </ul>
-  <% end%>
 
 <br/>
 

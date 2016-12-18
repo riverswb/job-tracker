@@ -22,6 +22,5 @@ describe "User visits a specific job and can add a comment" do
     expect(page).to have_content("Comment saved!")
     expect(page.find("li:nth-child(1)")).to have_content(comment_2)
     expect(page.find("li:nth-child(2)")).to have_content(comment)
-
   end
 end
