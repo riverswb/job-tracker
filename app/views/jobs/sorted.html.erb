@@ -1,0 +1,10 @@
+<h3>Jobs by Location</h3>
+
+<% @sorted.keys.each do |location| %>
+  <h2><%= location %>:</h2>
+  <ul>
+    <% Job.where(city: location).each do |job| %>
+    <li><%= job.title %></li>
+    <% end %>
+  </ul>
+<% end %>

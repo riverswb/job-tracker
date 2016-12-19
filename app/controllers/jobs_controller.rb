@@ -1,9 +1,15 @@
 class JobsController < ApplicationController
+
   def index
+    if params["sort"]
+      sort
+    else
+
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
     @contacts = Contact.all
     @contact = Contact.new
+  end
   end
 
   def new
@@ -53,6 +59,12 @@ class JobsController < ApplicationController
 
     flash[:success] = "The #{company.name} #{job.title} position was successfully deleted!"
     redirect_to company_jobs_path(company)
+  end
+
+  def sort
+    @sorted = Job.all.group(:city).count("id")
+
+    render :sorted
   end
 
   private

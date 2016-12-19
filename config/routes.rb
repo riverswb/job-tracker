@@ -8,9 +8,10 @@ Rails.application.routes.draw do
 
   resources :categories
 
-  resources :jobs do
+  resources :jobs, only: [:index, :show] do
     resources :comments, only: [:create]
   end
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
