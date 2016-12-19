@@ -10,9 +10,31 @@ All Jobs for <strong><%= @company.name %></strong>
   </ul>
 <% end %>
 <br>
-<button type="button" class="btn btn-secondary">
+<% if @contacts.count > 0 %>
+  <h3>Contacts:</h3>
+  <ul>
+    <% @contacts.each do |contact| %>
+      <li><strong>Name:</strong> <%= contact.name %>, <strong>Position:</strong> <%= contact.position %>, <strong>Email: </strong><%= contact.email %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h3>New Contact:</h3>
+<%= form_for [@company, @contact] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control"%>
+
+  <%= f.label :position %>
+  <%= f.text_field :position, class: "form-control" %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: "form-control" %>
+
+  <%= f.submit %>
+<% end %>
+
+<br>
+<div class="btn btn-secondary">
   <%= link_to 'Back', :back %>
-</button>
-<button type="button" class="btn btn-primary" name="button">
+</div>
   <%= link_to "Companies", companies_path %>
-</button>

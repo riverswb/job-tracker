@@ -2,11 +2,13 @@ class JobsController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
+    @contacts = Contact.all
+    @contact = Contact.new
   end
 
   def new
     @company = Company.find(params[:company_id])
-    @job = Job.new()
+    @job = Job.new
     @categories = Category.all
   end
 
