@@ -63,7 +63,7 @@ class JobsController < ApplicationController
 
   def sort
     @sorted = Job.group(:city).count("id")
-
+    @locations = 
     render :sorted
   end
 

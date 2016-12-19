@@ -1,0 +1,8 @@
+<h3>Companies Dashboard</h3>
+
+<h4>Top 3 Companies by Interest:</h4>
+    <ol>
+      <% @sorted_companies.each do |company| %>
+      <li><%= company.first.name %></li>
+      <% end %>
+    </ol>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  get '/dashboard', to: "companies#dashboard"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
