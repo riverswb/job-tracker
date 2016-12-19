@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'companies#index'
 
-  resources :companies do #, exclude:
+  resources :companies do
     resources :jobs
     resources :contacts, only: [:create]
   end

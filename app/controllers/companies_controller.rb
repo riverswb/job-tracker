@@ -1,6 +1,5 @@
 class CompaniesController < ApplicationController
   def dashboard
-    @companies = Company.all
     @sorted_companies = find_top_three_companies
     @jobs_count = Job.group(:city).count("id")
   end
@@ -11,8 +10,8 @@ class CompaniesController < ApplicationController
     found = {}
     top_companies.each do |avg|
       found[Company.find(averages.key(avg))] = avg
-      end
-      found
+    end
+    found
   end
 
   def index
