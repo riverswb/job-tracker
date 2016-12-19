@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
   root 'companies#index'
 
-  resources :companies do
+  resources :companies do #, exclude:
     resources :jobs
-    resources :contacts #, only: [:new]
+    resources :contacts, only: [:create]
   end
 
   resources :categories
 
   resources :jobs do
-    resources :comments
+    resources :comments, only: [:create]
   end
-
-  # resources :jobs, only: [:show]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
